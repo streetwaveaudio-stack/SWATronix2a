@@ -25,6 +25,13 @@ jobs:
         with:
           cmake-version: '3.24.x'
 
+      # Restaura el entorno MSVC para Windows
+      - name: Setup MSVC (Windows)
+        if: runner.os == 'Windows'
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
       - name: Install Linux dependencies (Ubuntu)
         if: runner.os == 'Linux'
         run: |
