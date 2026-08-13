@@ -36,7 +36,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
   juce::juce_graphics
 )
 
+# Desactiva la inclusión del SDK de VST2 para evitar errores de compilación
 target_compile_definitions(${PROJECT_NAME} PRIVATE
-  JUCE_WEB_BROWSER=0
-  JUCE_USE_CURL=0
+    JUCE_VST3_CAN_REPLACE_VST2=0
+    JUCE_WEB_BROWSER=0
+    JUCE_USE_CURL=0
 )
