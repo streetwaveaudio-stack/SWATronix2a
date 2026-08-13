@@ -106,3 +106,10 @@ void SWATronix2AAudioProcessor::applyPreset(const Preset& p)
     apvts.getParameter("mode")->setValueNotifyingHost(p.mode ? 1.0f : 0.0f);
     apvts.getParameter("emphasis")->setValueNotifyingHost(p.emphasis);
 }
+
+//==============================================================================
+// This creates new instances of the plugin
+juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
+{
+    return new SWATronix2AAudioProcessor();
+}
